@@ -16,6 +16,7 @@ public class SwingPaint {
 	 
 	  JButton clearBtn, blackBtn, blueBtn, greenBtn, redBtn, magentaBtn, plus, minus;
 	  DrawArea drawArea;
+	  public static Icon redimage;
 	    
 	  public static void main(String[] args) {
 		    new SwingPaint().show();//utworzenie okna
@@ -51,8 +52,13 @@ public class SwingPaint {
 	    }
 	  };
 	 
-	  
-	 
+	  public static void loadInitialImages() {
+	        
+	        redimage = (Icon) loadImage("images/red.png");
+	    }
+	  public static Image loadImage(String fileName) {
+	        return new ImageIcon(fileName).getImage();
+	    }
 	  public void show() {
 	    // utworz ramke
 	    JFrame frame = new JFrame("Elementarz");
@@ -78,6 +84,7 @@ public class SwingPaint {
 	    greenBtn.addActionListener(actionListener);
 	    redBtn = new JButton("Czerwony");
 	    redBtn.addActionListener(actionListener);
+	    redBtn.setIcon(redimage);
 	    magentaBtn = new JButton("Magenta");
 	    magentaBtn.addActionListener(actionListener);
 	    plus = new JButton("plus");
