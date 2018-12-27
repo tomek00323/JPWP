@@ -9,12 +9,14 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 public class Obraz extends JFrame{
-	public static Image bgImage;
-	
+	public static Image bgImage, bgImage2;
+//	public static  icon1;
+	public static Image icon1;
 public static void loadInitialImages() {
         
         bgImage = loadImage("images/A.jpg");
-       // menuImage=loadImage("images/menu_1024.png");
+        bgImage2 = loadImage("images/B.jpg");
+       icon1= loadImage("images/+.png");
       //  menuGameImage=loadImage("images/gra_1024.png");
      //   logoImage=loadImage("images/domestic_logo_url.png");
      //   cursorImage=loadImage("images/target_32_r.png");
@@ -31,11 +33,11 @@ public static Image loadImage(String fileName) {
     return new ImageIcon(fileName).getImage();
 }
 	
-	
+protected void paintComponent(Graphics g) { 
+  g.drawImage(Obraz.bgImage, 0, 0, null);
+  }	
 	
 	
 	
 	
 }
-	
-
