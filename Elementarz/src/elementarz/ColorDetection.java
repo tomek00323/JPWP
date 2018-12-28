@@ -24,17 +24,12 @@ import javax.swing.JTextPane;
 
 
 public class ColorDetection {
-	private final JFileChooser fileChooser = new JFileChooser("/images/A.jpg");
 	private int pixelRgb [] = new int [3];
 	private Vector<String> colorName= new Vector<String>();
 	private Vector<Double> distances = new Vector<Double>();
 	private int [][] storedRgb;
 	public static BufferedImage imgR ;
 	private String imagePath;
-	private File file;
-	//private ImageComponent surface;
-//	private static ImageComponent but1;
-	//public static ImageComponent but2;
 	private Color myColor = new Color (255, 255, 255);
 	public static final JTextPane textPane = new JTextPane();
 	public static final JTextPane textPane2 = new JTextPane();
@@ -62,11 +57,9 @@ public class ColorDetection {
 		
 	}
 	 public void init() {
-		 int returnValue = fileChooser.showOpenDialog( null ) ;
-			if( returnValue == JFileChooser.APPROVE_OPTION )
-			       file = fileChooser.getSelectedFile() ;
-			if(file != null){
-			     imagePath = file.getPath();
+		 File imageFile = new File("/image/A.jpg");
+			if(imageFile != null){
+			     imagePath = imageFile.getPath();
 			     readImage();
 			}
 		 

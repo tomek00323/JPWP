@@ -75,7 +75,7 @@ public class SwingPaint {
 	    content2.setLayout(new BorderLayout());
 	    // utworz panel do rysowania
 	    drawArea = new DrawArea();
-	  //  colordetection.init();// <-- BŁĄD w programie!!!!!!!!!!
+	    colordetection.init();
 	    // dodanie do panelu 
 	    content.add(drawArea, BorderLayout.CENTER);
 	    content2.add(drawArea, BorderLayout.CENTER);
