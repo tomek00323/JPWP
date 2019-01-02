@@ -4,16 +4,9 @@
  * and open the template in the editor.
  */
 package elementarz;
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.io.IOException;
-import java.io.*;
-import java.io.IOException;
-import javax.imageio.*;
-import java.awt.image.BufferedImage;
-import javax.swing.*;
 /**
  *
  * @author Tomek
@@ -22,10 +15,9 @@ public class SwingPaint {
 	 
 	  JButton clearBtn, blackBtn, blueBtn, greenBtn, redBtn, magentaBtn, plus, minus, zmien;
 	  DrawArea drawArea;
-	  Obraz obraz;
-	  ColorDetection colordetection;
-	  private static final JTextPane textPane = new JTextPane();
-//	  public static Image iconimage = Toolkit.getDefaultToolkit().getImage("/images/+.png");
+	  Images images;
+	  public static final JTextPane textPane = new JTextPane();
+	  public static final JTextPane textPane2 = new JTextPane();
 	  
 	  public static void main(String[] args) {
 		    new SwingPaint().show();//utworzenie okna
@@ -65,7 +57,7 @@ public class SwingPaint {
 	 
 	
 	  public void show() {
-		  Obraz.loadInitialImages();
+		Images.loadInitialImages();
 	    // utworz ramke
 	    JFrame frame = new JFrame("Elementarz");
 	    Container content = frame.getContentPane();
@@ -75,7 +67,6 @@ public class SwingPaint {
 	    content2.setLayout(new BorderLayout());
 	    // utworz panel do rysowania
 	    drawArea = new DrawArea();
-	    colordetection.init();
 	    // dodanie do panelu 
 	    content.add(drawArea, BorderLayout.CENTER);
 	    content2.add(drawArea, BorderLayout.CENTER);
@@ -83,27 +74,25 @@ public class SwingPaint {
 	    JPanel controls = new JPanel();
 	    JPanel info = new JPanel();
 	    clearBtn = new JButton ("Wyczyść");
-	    clearBtn.addActionListener(actionListener);
-	  //  clearBtn.setIcon(obraz.icon1);
-	    //clearBtn.ImageIcon(getClass().getResource("/images/button_wyczysc.png"));
-	//    clearBtn.setForeground(obraz.icon1);
 	    blackBtn = new JButton("Czarny");
-	    blackBtn.addActionListener(actionListener);
 	    blueBtn = new JButton("Niebieski");
-	    blueBtn.addActionListener(actionListener);
 	    greenBtn = new JButton("Zielony");
-	    greenBtn.addActionListener(actionListener);
 	    redBtn = new JButton("Czerwony");
-	    redBtn.addActionListener(actionListener);
-	  //  redBtn.setIcon(redimage);
 	    magentaBtn = new JButton("Magenta");
+	    plus = new JButton("Plus");
+	    minus = new JButton("Minus");
+	    zmien = new JButton ("Zmień");
+	    
+	    clearBtn.addActionListener(actionListener);
+	    blackBtn.addActionListener(actionListener);
+	    blueBtn.addActionListener(actionListener);
+	    greenBtn.addActionListener(actionListener);
+	    redBtn.addActionListener(actionListener);
 	    magentaBtn.addActionListener(actionListener);
-	    plus = new JButton("plus");
 	    plus.addActionListener(actionListener);
-	    minus = new JButton("minus");
 	    minus.addActionListener(actionListener);
-	    zmien = new JButton ("zmien");
 	    zmien.addActionListener(actionListener);
+	   // blackBtn.setBounds(0);
 	    // dodanie przyciskow do kontenera
 	    controls.add(blackBtn);
 	    controls.add(redBtn);
@@ -114,20 +103,23 @@ public class SwingPaint {
 	    controls.add(plus);
 	    controls.add(minus);
 	    controls.add(zmien);
+	    //controls.setLayout(null);
+	   // controls.setVisible(true);
 	    textPane.setBackground(null);
+	    textPane2.setBackground(null);
 	    Font nFont = new Font("SansSerif", Font.BOLD, 20);
 	    textPane.setFont(nFont);
-	    textPane.setText("Punkty : ");
+	    textPane2.setFont(nFont);
+	    info.add(textPane2);
 	    info.add(textPane);
-	    info.add(colordetection.textPane);
-	    info.add(colordetection.textPane2);
-	    // dodanie kontenera do panelu
+	   // info.add(textPane);
 	    content.add(controls, BorderLayout.PAGE_START);
 	    content2.add(info, BorderLayout.PAGE_END);
 	    frame.setSize(1024, 768);//rozmiar okna
 	    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//zamykanie okna
+	    frame.setLocationRelativeTo(null);//wysrodkowanie okna
 	    frame.setVisible(true);//widocznosc okna
-	    
+	   // frame.setResizable(false);
 	  }
 	 
 	}
