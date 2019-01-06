@@ -8,26 +8,40 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 /**
- *
- * @author Tomek
+ * Prosta gra interaktywna trenująca umiejętność pisania recznęgo
+ * @author Tomek Bojarski
  */
 public class GUI {
-	 
+	  /**  Przycisk X   */
 	  JButton clearBtn;
+	  /**  Przycisk wstecz  */
 	  JButton backBtn;
+	  /**  Przycisk niebieskiego koloru  */
 	  JButton blueBtn;
+	  /**  Przycisk zielonego koloru  */
 	  JButton greenBtn;
+	  /**  Przycisk czerwonego koloru  */
 	  JButton redBtn;
+	  /**  Przycisk magenta koloru  */
 	  JButton magentaBtn;
+	  /**  Przycisk dalej  */
 	  JButton nextBtn;
+	  /**  Przycisk wyboru poziomu  */
 	  JButton mode;
+	  /**  Przypisanie statyczne klasy DrawArea  */
 	  DrawArea drawArea;
+	  /**  Obiekt typu JTextPane zawierający informacje o stanie rozgrywki  */
 	  public static final JTextPane textPane = new JTextPane();
+	  /**  Obiekt typu JTextPane zawierający informacje o liczbie punktów  */
 	  public static final JTextPane textPane2 = new JTextPane();
+	  /**  Zmienna color typu int zawierająca informację o wybranym kolorze  */
 	  public static int color =1 ;
+	  /**  Zmienna level typu int zawierająca informację o wybranym poziomie gry  */
 	  public static int level = 1;
 	  
-	  
+	  /**
+	     * Metoda uruchamia grę. Następuje wywołanie metody show() która załącza interfejs graficzny.
+	     */
 	  public static void main(String[] args) {
 		    new GUI().show();//utworzenie okna
 		  }
@@ -57,7 +71,7 @@ public class GUI {
 	      }else if(e.getSource()== mode) {
 	    	  if(drawArea.check == false) {
 	    	  if(level == 3) {
-		        	mode.setIcon(Images.litery);
+		        	mode.setIcon(Images.letters);
 		        	level =1;
 		        	Images.i=0;
 		        	drawArea.fontsize = 8;
@@ -79,7 +93,10 @@ public class GUI {
 	      }
 	    }
 	  };
-	 
+	  
+	  /**
+	     * Metoda inicjalizująca interfejs graficzny oraz wywołująca domyślny konstruktor klasy DrawArea
+	     */
 	  public void show() {
 		Images.loadInitialImages();
 	    // utworz ramke
@@ -89,7 +106,7 @@ public class GUI {
 	    // ustaw layout
 	    content.setLayout(new BorderLayout());
 	    content2.setLayout(new BorderLayout());
-	    // utworz panel do rysowania
+	    // utworz panel do rysowania (wywołanie domyślnego konstruktora klasy DrawArea)
 	    drawArea = new DrawArea();
 	    
 	    // dodanie do panelu 
@@ -128,7 +145,7 @@ public class GUI {
 	    nextBtn.setBorderPainted(false);
 	    nextBtn.setContentAreaFilled(false);
 	    mode = new JButton();
-	    mode.setIcon(Images.litery);
+	    mode.setIcon(Images.letters);
 	    mode.setBorderPainted(false);
 	    mode.setContentAreaFilled(false);
 	    
@@ -165,7 +182,7 @@ public class GUI {
 	    content2.add(info, BorderLayout.PAGE_END);
 	    frame.setSize(1024, 768);//rozmiar okna
 	    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//zamykanie okna
-	   // frame.setLocationRelativeTo(null);//wyśrodkowanie okna
+	    //frame.setLocationRelativeTo(null);//wyśrodkowanie okna
 	    frame.setVisible(true);//widoczność okna
 	    frame.setResizable(false);//zablokowanie rozmiarów okna
 	  }

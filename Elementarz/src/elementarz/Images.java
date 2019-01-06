@@ -2,37 +2,66 @@ package elementarz;
 
 import javax.swing.*;
 import java.awt.*;
-
+/**
+ * Klasa Images zawierająca zasoby graficzne gry
+ * Klasa zawiera obiekty przechowujące typ Images oraz String (ścieżki plików które są 
+ * wywyoływane w metodzie zwracającej obiekt klasy ImageIcon)
+ * @author Tomek Bojarski
+ */
 
 public class Images extends JFrame{
-
+	/**  Zmienna statyczna typu int przechowująca indeks tablicy String[] image  */
 	public static int i = 0 ;
+	/**  Tablica image typu String przechowująca ścieżki plików graficznych  */
 	public static String[] image;
+	/**  Obiekt typu Icon przechowujący grafikę przycisku back  */
 	public static Icon back;
+	/**  Obiekt typu Icon przechowujący grafikę przycisku magentaBtn  */
 	public static Icon magenta;
+	/**  Obiekt typu Icon przechowujący grafikę przycisku redBtn  */
 	public static Icon red;
+	/**  Obiekt typu Icon przechowujący grafikę przycisku blueBtn  */
 	public static Icon blue;
+	/**  Obiekt typu Icon przechowujący grafikę przycisku clearBtn  */
 	public static Icon clear;
+	/**  Obiekt typu Icon przechowujący grafikę przycisku greenBtn  */
 	public static Icon green;
+	/**  Obiekt typu Icon przechowujący grafikę przycisku next  */
 	public static Icon next;
-	public static Icon litery;
+	/**  Obiekt typu Icon przechowujący grafikę przycisku mode  */
+	public static Icon letters;
+	/**  Obiekt typu Icon przechowujący grafikę przycisku mode  */
 	public static Icon words;
+	/**  Obiekt typu Icon przechowujący grafikę przycisku mode  */
 	public static Icon sentences;
 	
-	
+	/**
+     * Metoda zawierająca zdefiniowane zasoby graficzne (dla przycisków obiekty typu ImageIcon które są ikonami dla przycisków panelu graficzego
+     * oraz tablicę image[] zawierającą ścieżki plików szablonów
+     */
 public static void loadInitialImages() {
-	
+	/**  Obiekt Icon zawierający plik graficzny magentaBtn  */
 	magenta= new ImageIcon("images/button_magenta.png");
+	/**  Obiekt Icon zawierający plik graficzny back  */
     back = new ImageIcon("images/back.png");
+    /**  Obiekt Icon zawierający plik graficzny redBtn  */
     red= new ImageIcon("images/button_czerwony.png");
+    /**  Obiekt Icon zawierający plik graficzny blueBtn  */
     blue= new ImageIcon("images/button_niebieski.png");
+    /**  Obiekt Icon zawierający plik graficzny clearBtn  */
     clear= new ImageIcon("images/button_x.png");
+    /**  Obiekt Icon zawierający plik graficzny greenBtn  */
     green= new ImageIcon("images/button_zielony.png");
+    /**  Obiekt Icon zawierający plik graficzny next  */
     next= new ImageIcon("images/next.png");
-    litery = new ImageIcon("images/button_litery.png");
+    /**  Obiekt Icon zawierający plik graficzny mode  */
+    letters = new ImageIcon("images/button_litery.png");
+    /**  Obiekt Icon zawierający plik graficzny mode  */
     words = new ImageIcon("images/button_wyrazy.png");
+    /**  Obiekt Icon zawierający plik graficzny mode  */
     sentences = new ImageIcon("images/button_zdania.png");
     
+    /**  Tablica String zawieracąca ścieżki plików graficznych  */
 	image= new String[52];
 	image[0] = "images/A.jpg";
 	image[1] = "images/B.jpg";
@@ -87,7 +116,9 @@ public static void loadInitialImages() {
 	image[50] = "images/Chcę.jpg";
 	image[51] = "images/Ala.jpg";
     }
-
+/**
+ * Metoda zwracająca obiekt klasy ImageIcon. Metoda przyjmuje jako parametr zmienną typu String
+ */
 public static Image loadImage(String fileName) {
     return new ImageIcon(fileName).getImage();
 }
